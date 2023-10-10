@@ -1,17 +1,18 @@
 <?php
 namespace app\models;
+
 use yii\base\Model;
 
 class UserForm extends Model
 {
     public $name;
-    public $password;
+    public $email;
 
     public function rules()
     {
         return [
-            [['name' , 'password' , 'required']],
-            ['email' , 'email'],
+            [['name', 'email'], 'required'],
+            ['email', 'email'],
         ];
     }
 }
