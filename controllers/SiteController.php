@@ -127,18 +127,19 @@ class SiteController extends Controller
         return $this->render('about'); 
     }
 
-    public function actionHello(){
+    public function actionHellohi(){
         $name = 'namal tharinud bandara';
     return $this->render('hello' , array('name' => $name));
 }
 
-public function actionUserForm(){
+public function actionUser(){
     $model = new UserForm;
     if($model -> load(Yii::$app->request->post())  && $model-> validate()){
-//this code write later
-    }else{
-        return $this->render('userForm' , ['model' => $model]);
+
+        Yii::$app->session->setFlash('success' , 'You have entered data correctly');
     }
+        return $this->render('userForm' , ['model' => $model]);
+    
 }
 
 }
